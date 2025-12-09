@@ -1,8 +1,8 @@
-<section id="proyectos">
-    <h2>Mis Proyectos Destacados</h2>
+<section id="projects">
+    <h2>My Featured Projects</h2>
     <div class="proyecto">
         <img src="img/ecommerce.jpg" 
-             alt="Captura de pantalla de un sitio web de comercio electrónico que diseñé, mostrando una página de producto."
-             loading="lazy"> <h3>Proyecto E-commerce</h3>
+             alt="Screenshot of an e-commerce website I designed, showing a product page."
+             loading="lazy"> <h3>E-commerce Project</h3>
     </div>
 </section>
