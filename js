@@ -1,20 +1,14 @@
-JavaScript se utiliza para añadir comportamiento dinámico. Un ejemplo común es un menú de navegación responsive (hamburguesa) o una galería de imágenes con carrusel.
-
-Fragmento de JS (para un menú hamburguesa):
-
-JavaScript
-
-// Asumiendo un botón con id="menu-toggle" y un nav con id="main-nav"
+// Assuming a button with id="menu-toggle" and a nav with id="main-nav"
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
 
     menuToggle.addEventListener('click', () => {
-        // Alterna una clase para mostrar/ocultar el menú
+        // Toggles a class to show/hide the menu
         mainNav.classList.toggle('active'); 
         
-        // Mejora de accesibilidad: alterna el atributo aria-expanded
+        // Accessibility enhancement: toggles the aria-expanded attribute
         const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
         menuToggle.setAttribute('aria-expanded', !isExpanded);
     });
