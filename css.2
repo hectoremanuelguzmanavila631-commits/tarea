@@ -1,0 +1,36 @@
+El CSS asegura que el diseño se vea bien en cualquier dispositivo mediante el uso de media queries. Este es el ejemplo más crítico para este punto.
+
+Archivo styles.css (continuación):
+
+CSS
+
+/* ESTILOS POR DEFECTO (Mobile First) */
+.columna {
+    width: 100%; /* Las columnas ocupan todo el ancho en móviles */
+    margin-bottom: 20px;
+}
+
+/* MEDIA QUERY para Pantallas más Grandes (Tabletas y Escritorio) */
+@media (min-width: 768px) {
+    /* El contenedor principal centra el contenido en pantallas grandes */
+    .contenedor {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Las columnas ahora flotan o usan flex/grid para mostrarse lado a lado */
+    .fila-proyectos {
+        display: flex;
+        gap: 20px;
+    }
+    .columna {
+        width: calc(33.333% - 13.333px); /* 3 columnas con espacio entre ellas */
+        margin-bottom: 0;
+    }
+    
+    /* Ocultar el botón del menú hamburguesa en escritorio */
+    #menu-toggle {
+        display: none;
+    }
+}
