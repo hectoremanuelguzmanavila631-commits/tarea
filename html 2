@@ -1,0 +1,8 @@
+<section id="proyectos">
+    <h2>Mis Proyectos Destacados</h2>
+    <div class="proyecto">
+        <img src="img/ecommerce.jpg" 
+             alt="Captura de pantalla de un sitio web de comercio electrónico que diseñé, mostrando una página de producto."
+             loading="lazy"> <h3>Proyecto E-commerce</h3>
+    </div>
+</section>
