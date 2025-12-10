@@ -1,62 +1,149 @@
-/* --- Estilos Avanzados (Para los 5pts de Estilo) --- */
+/* --- Variables para Modo Oscuro y Colores Base (Moderno y Bonito) --- */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --primary-color: #007bff;
+    --bg-color: #1e1e2f; /* Fondo oscuro principal */
+    --text-color: #f0f0f0; /* Texto claro */
+    --primary-color: #00bcd4; /* Azul cian brillante (Acento moderno) */
+    --secondary-bg: #27283c; /* Fondo de secciones o tarjetas */
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Modo Oscuro (Cambia las variables con JS) */
-body.dark-theme {
-    --bg-color: #1a1a2e;
-    --text-color: #e0e0e0;
-    --primary-color: #ff9900;
-}
-
+/* --- Estilos Generales (5 puntos de Estilo) --- */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s, color 0.3s; /* Transición suave */
     margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
 }
 
-.main-header {
+/* Encabezados y Títulos */
+h1, h2 {
+    color: var(--primary-color);
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--secondary-bg);
+    box-shadow: var(--box-shadow);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background-color: var(--bg-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Sticky Header para mejor experiencia */
+    top: 0;
+    z-index: 1000;
 }
 
-/* Diseño de las tarjetas de proyectos con Grid */
-#projects div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px 5%;
+header a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color 0.3s;
 }
 
-/* --- Adaptabilidad (Para los 2pts de Responsive) --- */
+header a:hover {
+    color: var(--primary-color); /* Efecto hover con color de acento */
+}
+
+/* Oculta los puntos de lista */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* Botón de menú (solo visible en móvil) */
+#toggle-menu {
+    display: none;
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* --- Diseño de Secciones (Tarjetas de Proyectos) --- */
+main section {
+    padding: 40px 5%;
+    border-bottom: 1px solid #333; /* Separador sutil */
+}
+
+.project-card {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin: 20px 0;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Efecto 3D sutil al pasar el mouse */
+}
+
+/* --- Formulario de Contacto --- */
+#contact-form input, #contact-form textarea, #contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+#contact-form button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #00a0b6;
+}
+
+/* --- Diseño Adaptable (Para los 2 puntos de Responsivo) --- */
 @media (max-width: 768px) {
-    /* Oculta la navegación normal y muestra el botón de menú */
-    #main-nav ul {
-        display: none;
+    /* Header: Colapsa el menú */
+    header {
         flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Bajo el header */
-        left: 0;
-        background-color: var(--bg-color);
+        align-items: flex-start;
     }
     
-    /* Muestra el menú cuando JS añade la clase 'active' */
-    #main-nav.active ul {
+    /* Muestra el botón de menú */
+    #toggle-menu {
+        display: block;
+        position: absolute; /* Coloca el botón en la esquina */
+        top: 15px;
+        right: 5%;
+    }
+
+    /* Oculta la navegación por defecto en móvil */
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Oculto por defecto */
+        background-color: var(--secondary-bg);
+    }
+    
+    /* Muestra el menú cuando JS añada la clase 'active' */
+    nav.active ul {
         display: flex;
     }
 
-    #toggle-menu {
-        display: block;
-        /* Estilos del botón */
+    nav ul a {
+        padding: 10px 0;
+        text-align: center;
+        border-top: 1px solid #333;
     }
 }
