@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Digital de [Tu Nombre]</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
-        <h1>[Tu Nombre]</h1>
-        <button id="toggle-menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <div class="header-content">
+            <h1>[Tu Nombre]</h1>
+            <button id="toggle-menu" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir/Cerrar menú de navegación">
+                <span class="menu-icon">☰</span>
+            </button>
+        </div>
         <nav id="main-nav">
             <ul>
+                <li><a href="#hero">Inicio</a></li>
                 <li><a href="#about">Acerca</a></li>
+                <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#contact">Contacto</a></li>
                 <li><button id="theme-toggle" aria-label="Alternar modo oscuro">🌙</button></li>
@@ -21,28 +28,111 @@
     </header>
 
     <main>
-        <section id="about" aria-labelledby="about-title">
-            <h2 id="about-title">Quién Soy</h2>
-            <img src="avatar.jpg" alt="Avatar digital profesional de un desarrollador sonriendo" class="profile-avatar"> <p>Soy un desarrollador Full Stack apasionado por las interfaces responsivas y la accesibilidad...</p>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <p>¡Hola, soy</p>
+                <h1>[Tu Nombre Completo]</h1>
+                <p>Desarrollador Full Stack | Creador de Experiencias Web</p>
+                <a href="#projects" class="btn-primary">Ver Mis Proyectos</a>
+            </div>
+            <div class="hero-image">
+                <img src="hero-avatar.png" alt="Ilustración de un desarrollador trabajando en una computadora, representando a [Tu Nombre]." aria-hidden="true">
+            </div>
         </section>
 
-        <section id="projects" aria-labelledby="projects-title">
-            <h2 id="projects-title">Mis Proyectos Destacados</h2>
-            <div class="project-card">
-                <h3>E-commerce Demo</h3>
-                <img src="ecommerce.png" alt="Captura de pantalla de un sitio web de comercio electrónico minimalista" class="project-img"> </div>
+        <section id="about" class="content-section" aria-labelledby="about-title">
+            <h2 id="about-title">Acerca de Mí</h2>
+            <div class="about-content-grid">
+                <img src="about-profile.jpg" alt="Foto profesional de [Tu Nombre] sonriendo" class="profile-avatar">
+                <div class="about-text">
+                    <p>Soy un apasionado desarrollador web con experiencia en la creación de aplicaciones robustas y eficientes. Mi enfoque se centra en construir experiencias de usuario intuitivas y funcionales.</p>
+                    <p>Con un fuerte interés en la mejora continua, siempre estoy aprendiendo nuevas tecnologías y metodologías para entregar soluciones de alta calidad.</p>
+                    <a href="#contact" class="btn-secondary">Contáctame</a>
+                </div>
+            </div>
         </section>
 
-        <section id="contact" aria-labelledby="contact-title">
-            <h2 id="contact-title">Hablemos</h2>
+        <section id="skills" class="content-section" aria-labelledby="skills-title">
+            <h2 id="skills-title">Mis Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>React, Vue.js (Opcional)</li>
+                        <li>Diseño Responsivo</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Node.js, Python, C# (.NET)</li>
+                        <li>APIs RESTful</li>
+                        <li>Bases de Datos (SQL, NoSQL)</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h3>Herramientas</h3>
+                    <ul>
+                        <li>Git, GitHub, VS Code</li>
+                        <li>Docker (Opcional)</li>
+                        <li>Azure, AWS (Opcional)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section" aria-labelledby="projects-title">
+            <h2 id="projects-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>E-commerce Moderno</h3>
+                    <img src="project-ecommerce.jpg" alt="Captura de pantalla de un sitio web de e-commerce con diseño limpio" class="project-img">
+                    <p>Plataforma de comercio electrónico con carrito de compras y gestión de productos. Desarrollado con React y Node.js.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-primary" target="_blank">Ver Demo</a>
+                        <a href="#" class="btn-secondary" target="_blank">Código Fuente</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Aplicación de Notas</h3>
+                    <img src="project-notes.jpg" alt="Captura de pantalla de una aplicación web de notas simple" class="project-img">
+                    <p>Aplicación de notas con almacenamiento local, filtrado y búsqueda. Utiliza Vanilla JavaScript.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-primary" target="_blank">Ver Demo</a>
+                        <a href="#" class="btn-secondary" target="_blank">Código Fuente</a>
+                    </div>
+                </article>
+
+                </div>
+        </section>
+
+        <section id="contact" class="content-section" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contáctame</h2>
             <form id="contact-form">
-                <input type="text" placeholder="Tu Nombre">
-                <input type="email" placeholder="Tu Email">
-                <textarea placeholder="Tu Mensaje"></textarea>
-                <button type="submit">Enviar Mensaje</button>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Tu Email" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" placeholder="Tu Mensaje..." rows="6" required></textarea>
+                
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
             </form>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Perfil de LinkedIn"><img src="linkedin.png" alt="Icono de LinkedIn"></a>
+            <a href="#" aria-label="Perfil de GitHub"><img src="github.png" alt="Icono de GitHub"></a>
+            </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
