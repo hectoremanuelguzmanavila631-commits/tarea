@@ -1,15 +1,36 @@
-// Assuming a button with id="menu-toggle" and a nav with id="main-nav"
+// 1. Alternar Menú Móvil
+const menuToggle = document.getElementById('toggle-menu');
+const nav = document.getElementById('main-nav');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainNav = document.getElementById('main-nav');
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    const isExpanded = nav.classList.contains('active');
+    menuToggle.setAttribute('aria-expanded', isExpanded); // Accesibilidad
+});
 
-    menuToggle.addEventListener('click', () => {
-        // Toggles a class to show/hide the menu
-        mainNav.classList.toggle('active'); 
-        
-        // Accessibility enhancement: toggles the aria-expanded attribute
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-    });
+// 2. Alternar Modo Oscuro
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    // Guardar preferencia del usuario (plus avanzado)
+    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+});
+
+// Aplicar el tema guardado al cargar la página
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-theme');
+}
+
+// 3. Validación de Formulario Básico (Plus de Interactividad)
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', function(event) {
+    const emailInput = contactForm.querySelector('input[type="email"]');
+    if (!emailInput.value.includes('@')) {
+        alert('Por favor, ingresa un email válido.');
+        event.preventDefault(); // Evita que se envíe el formulario
+    } else {
+        // En un proyecto real aquí se enviaría el formulario
+        alert('Mensaje enviado (simulación)');
+        event.preventDefault();
+    }
 });
