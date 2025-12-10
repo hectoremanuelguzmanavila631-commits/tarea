@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>My Digital Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Digital de [Tu Nombre]</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>[Your Name]</h1>
-        <nav>
+    <header class="main-header">
+        <h1>[Tu Nombre]</h1>
+        <button id="toggle-menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <nav id="main-nav">
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Acerca</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><button id="theme-toggle" aria-label="Alternar modo oscuro">🌙</button></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <section id="about">
-            </section>
-        <section id="projects">
-            </section>
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Quién Soy</h2>
+            <img src="avatar.jpg" alt="Avatar digital profesional de un desarrollador sonriendo" class="profile-avatar"> <p>Soy un desarrollador Full Stack apasionado por las interfaces responsivas y la accesibilidad...</p>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title">Mis Proyectos Destacados</h2>
+            <div class="project-card">
+                <h3>E-commerce Demo</h3>
+                <img src="ecommerce.png" alt="Captura de pantalla de un sitio web de comercio electrónico minimalista" class="project-img"> </div>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Hablemos</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Tu Nombre">
+                <input type="email" placeholder="Tu Email">
+                <textarea placeholder="Tu Mensaje"></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
     </main>
-    <footer>
-        <p>© 2025 [Your Name]</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
